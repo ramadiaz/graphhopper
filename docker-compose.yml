@@ -18,7 +18,7 @@ services:
     environment:
       - JAVA_OPTS=-Xmx4g -Xms4g
       - OSM_FILE=/app/berlin-latest.osm.pbf
-    restart: unless-stopped
+    restart: on-failure
 
 volumes:
   graph-cache:
