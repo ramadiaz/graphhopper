@@ -16,8 +16,11 @@ services:
       # Persist logs
       - logs:/app/logs
     environment:
-      # Adjust based on available system RAM
-      - JAVA_OPTS=-Xmx12g -Xms12g -XX:+UseG1GC
+      # Memory settings optimized for MMAP_STORE (uses less RAM than RAM_STORE)
+      # During import: needs ~8-10GB heap
+      # After import: uses ~4-6GB heap (MMAP_STORE allows OS to manage memory/disk)
+      # If using RAM_STORE instead, increase to -Xmx12g -Xms12g
+      - JAVA_OPTS=-Xmx10g -Xms10g -XX:+UseG1GC
       - OSM_FILE=/app/indonesia-latest.osm.pbf
     restart: on-failure
 
