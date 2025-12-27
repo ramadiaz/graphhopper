@@ -3,6 +3,18 @@ set -e
 
 OSM_FILE="${OSM_FILE:-/app/berlin-latest.osm.pbf}"
 
+# Verify Java version is 17 or higher
+JAVA_VERSION_OUTPUT=$(java -version 2>&1 | head -n 1)
+JAVA_VERSION=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
+JAVA_MAJOR=$(echo "$JAVA_VERSION" | awk -F '.' '{if ($1 == 1) print $2; else print $1}')
+
+if [ -z "$JAVA_MAJOR" ] || [ "$JAVA_MAJOR" -lt 17 ]; then
+    echo "ERROR: Java 17 or higher is required. Found Java version: $JAVA_VERSION_OUTPUT"
+    exit 1
+fi
+
+echo "Java version: $JAVA_VERSION_OUTPUT"
+
 # Check if OSM file exists and is a file (not a directory)
 if [ ! -f "$OSM_FILE" ]; then
     if [ -d "$OSM_FILE" ]; then
