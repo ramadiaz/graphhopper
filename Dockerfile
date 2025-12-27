@@ -1,32 +1,16 @@
 # Build stage
-FROM maven:3.9-eclipse-temurin-17 AS builder
+FROM maven:3.9-eclipse-temurin-17-jdk AS builder
 
 WORKDIR /app
 
-# Copy pom.xml files first for better layer caching
-COPY pom.xml .
-COPY core/pom.xml core/
-COPY reader-gtfs/pom.xml reader-gtfs/
-COPY tools/pom.xml tools/
-COPY map-matching/pom.xml map-matching/
-COPY web-bundle/pom.xml web-bundle/
-COPY web-api/pom.xml web-api/
-COPY web/pom.xml web/
-COPY client-hc/pom.xml client-hc/
-COPY navigation/pom.xml navigation/
-COPY example/pom.xml example/
-
-# Download dependencies (this layer will be cached if pom.xml doesn't change)
-RUN mvn dependency:go-offline -B
-
-# Copy source code
+# Copy all project files
 COPY . .
 
 # Build the application (skip tests for faster build)
 RUN mvn clean package -DskipTests -B
 
 # Runtime stage
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
