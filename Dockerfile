@@ -20,6 +20,10 @@ COPY --from=builder /app/web/target/graphhopper-web-*.jar ./graphhopper.jar
 # Copy config file
 COPY config.yml ./config.yml
 
+# Copy entrypoint script
+COPY docker-entrypoint.sh ./docker-entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
+
 # Create directories for logs and graph cache
 RUN mkdir -p logs graph-cache
 
@@ -33,5 +37,5 @@ ENV JAVA_OPTS="-Xmx2g -Xms2g"
 ENV OSM_FILE="/app/berlin-latest.osm.pbf"
 
 # Run the application
-CMD java $JAVA_OPTS -D"dw.graphhopper.datareader.file=${OSM_FILE}" -jar graphhopper.jar server config.yml
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
