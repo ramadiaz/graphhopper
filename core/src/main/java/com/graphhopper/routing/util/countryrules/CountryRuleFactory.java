@@ -20,6 +20,7 @@ package com.graphhopper.routing.util.countryrules;
 
 
 import com.graphhopper.routing.ev.Country;
+import com.graphhopper.routing.util.countryrules.asia.IndonesiaCountryRule;
 import com.graphhopper.routing.util.countryrules.europe.*;
 
 import java.util.EnumMap;
@@ -37,6 +38,9 @@ public class CountryRuleFactory {
         rules.put(AUT, new AustriaCountryRule());
         rules.put(DEU, new GermanyCountryRule());
         rules.put(HUN, new HungaryCountryRule());
+        
+        // Asia
+        rules.put(IDN, new IndonesiaCountryRule());
     }
 
     public CountryRule getCountryRule(Country country) {
