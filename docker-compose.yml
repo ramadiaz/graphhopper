@@ -10,6 +10,8 @@ services:
       - "8989:8989"
     volumes:
       # Mount OSM data file (download from https://download.geofabrik.de/)
+      # IMPORTANT: The file must exist on the host, otherwise Docker will create a directory
+      # Download example: wget https://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf
       - ./berlin-latest.osm.pbf:/app/berlin-latest.osm.pbf:ro
       # Persist graph cache between container restarts
       - graph-cache:/app/graph-cache
@@ -17,7 +19,7 @@ services:
       - logs:/app/logs
     environment:
       - JAVA_OPTS=-Xmx4g -Xms4g
-      - OSM_FILE=berlin-latest.osm.pbf
+      - OSM_FILE=/app/berlin-latest.osm.pbf
     restart: unless-stopped
 
 volumes:

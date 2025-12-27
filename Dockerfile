@@ -46,7 +46,7 @@ EXPOSE 8989
 ENV JAVA_OPTS="-Xmx2g -Xms2g"
 
 # Default OSM file (can be overridden via environment variable or volume mount)
-ENV OSM_FILE="berlin-latest.osm.pbf"
+ENV OSM_FILE="/app/berlin-latest.osm.pbf"
 
 # Run the application
 CMD java $JAVA_OPTS -D"dw.graphhopper.datareader.file=${OSM_FILE}" -jar graphhopper.jar server config.yml
