@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-OSM_FILE="${OSM_FILE:-/app/berlin-latest.osm.pbf}"
+OSM_FILE="${OSM_FILE:-/app/indonesia-latest.osm.pbf}"
 
 # Verify Java version is 17 or higher
 JAVA_VERSION_OUTPUT=$(java -version 2>&1 | head -n 1)
@@ -21,8 +21,8 @@ if [ ! -f "$OSM_FILE" ]; then
         echo "ERROR: $OSM_FILE is a directory, not a file!"
         echo ""
         echo "This usually happens when the OSM file doesn't exist on the host machine."
-        echo "Please download the OSM file first:"
-        echo "  wget https://download.geofabrik.de/europe/germany/berlin-latest.osm.pbf"
+        echo "Please download the Indonesian OSM file first:"
+        echo "  wget https://download.geofabrik.de/asia/indonesia-latest.osm.pbf"
         echo ""
         echo "Or if using docker-compose, make sure the file exists before running:"
         echo "  docker-compose up"

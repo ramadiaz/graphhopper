@@ -34,7 +34,7 @@ EXPOSE 8989
 ENV JAVA_OPTS="-Xmx2g -Xms2g"
 
 # Default OSM file (can be overridden via environment variable or volume mount)
-ENV OSM_FILE="/app/berlin-latest.osm.pbf"
+ENV OSM_FILE="/app/indonesia-latest.osm.pbf"
 
 # Run the application
 ENTRYPOINT ["./docker-entrypoint.sh"]
