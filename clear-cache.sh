@@ -8,12 +8,12 @@ echo "Clearing GraphHopper cache..."
 # Check if using Docker
 if command -v docker &> /dev/null && docker ps -a --format '{{.Names}}' | grep -q "^graphhopper$"; then
     echo "Docker container detected. Stopping container..."
-    docker-compose down
+    docker compose down
     
     echo "Removing graph-cache volume..."
     docker volume rm graphhopper_graph-cache 2>/dev/null || docker volume rm graph-cache 2>/dev/null || echo "Volume not found or already removed"
     
-    echo "Cache cleared. Restart with: docker-compose up"
+    echo "Cache cleared. Restart with: docker compose up"
 else
     # Local cache directory
     if [ -d "graph-cache" ]; then
