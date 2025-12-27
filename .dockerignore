@@ -1,0 +1,64 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.idea
+.vscode
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings
+*.swp
+*.swo
+*~
+
+# Build artifacts
+target/
+**/target/
+*.class
+*.jar
+!web/target/graphhopper-web-*.jar
+
+# Logs
+logs/
+*.log
+
+# Graph cache (will be generated at runtime)
+graph-cache/
+**/graph-cache/
+
+# Test files
+**/test/
+**/tests/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+appveyor.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+
+# Node modules (for web-bundle)
+node_modules/
+**/node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+

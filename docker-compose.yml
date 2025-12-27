@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  graphhopper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: graphhopper
+    ports:
+      - "8989:8989"
+    volumes:
+      # Mount OSM data file (download from https://download.geofabrik.de/)
+      - ./berlin-latest.osm.pbf:/app/berlin-latest.osm.pbf:ro
+      # Persist graph cache between container restarts
+      - graph-cache:/app/graph-cache
+      # Persist logs
+      - logs:/app/logs
+    environment:
+      - JAVA_OPTS=-Xmx4g -Xms4g
+      - OSM_FILE=berlin-latest.osm.pbf
+    restart: unless-stopped
+
+volumes:
+  graph-cache:
+  logs:
+
