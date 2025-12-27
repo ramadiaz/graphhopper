@@ -16,7 +16,8 @@ services:
       # Persist logs
       - logs:/app/logs
     environment:
-      - JAVA_OPTS=-Xmx4g -Xms4g
+      # Adjust based on available system RAM
+      - JAVA_OPTS=-Xmx12g -Xms12g -XX:+UseG1GC
       - OSM_FILE=/app/indonesia-latest.osm.pbf
     restart: on-failure
 
