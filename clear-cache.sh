@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to clear GraphHopper cache and force rebuild with Indonesia map
+# Script to clear GraphHopper cache and force rebuild with Java map
 
 set -e
 
@@ -25,11 +25,11 @@ else
     fi
     
     echo ""
-    echo "To rebuild the graph with Indonesia map, run:"
-    echo "  java -D\"dw.graphhopper.datareader.file=indonesia-latest.osm.pbf\" -jar web/target/graphhopper-web-*.jar server config.yml"
+    echo "To rebuild the graph with Java map, run:"
+    echo "  java -D\"dw.graphhopper.datareader.file=java-latest.osm.pbf\" -jar web/target/graphhopper-web-*.jar server config.yml"
 fi
 
 echo ""
-echo "Note: The graph will be rebuilt from indonesia-latest.osm.pbf on next startup."
+echo "Note: The graph will be rebuilt from java-latest.osm.pbf on next startup."
 echo "This may take some time depending on the size of the map file."
 

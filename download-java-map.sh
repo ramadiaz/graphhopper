@@ -1,11 +1,11 @@
 #!/bin/bash
 # Script to download Indonesian OSM map data for GraphHopper
-# Usage: ./download-indonesia-map.sh
+# Usage: ./download-java-map.sh
 
 set -e
 
-MAP_URL="https://download.geofabrik.de/asia/indonesia-latest.osm.pbf"
-MAP_FILE="indonesia-latest.osm.pbf"
+MAP_URL="https://download.geofabrik.de/asia/java-latest.osm.pbf"
+MAP_FILE="java-latest.osm.pbf"
 
 echo "Downloading Indonesian OSM map data..."
 echo "URL: $MAP_URL"

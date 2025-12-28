@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-OSM_FILE="${OSM_FILE:-/app/indonesia-latest.osm.pbf}"
+OSM_FILE="${OSM_FILE:-/app/java-latest.osm.pbf}"
 
 # Verify Java version is 17 or higher
 JAVA_VERSION_OUTPUT=$(java -version 2>&1 | head -n 1)
@@ -22,7 +22,7 @@ if [ ! -f "$OSM_FILE" ]; then
         echo ""
         echo "This usually happens when the OSM file doesn't exist on the host machine."
         echo "Please download the Indonesian OSM file first:"
-        echo "  wget https://download.geofabrik.de/asia/indonesia-latest.osm.pbf"
+        echo "  wget https://download.geofabrik.de/asia/java-latest.osm.pbf"
         echo ""
         echo "Or if using docker-compose, make sure the file exists before running:"
         echo "  docker-compose up"

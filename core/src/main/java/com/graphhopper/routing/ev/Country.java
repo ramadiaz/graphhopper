@@ -116,7 +116,7 @@ public enum Country {
     HRV("Croatia", "HRV", "HR", true),
     HTI("Haiti", "HTI", "HT", true),
     HUN("Hungary", "HUN", "HU", true),
-    IDN("Indonesia", "IDN", "ID", false),
+    IDN("Java", "IDN", "ID", false),
     IMN("Isle of Man", "IMN", "IM", false),
     IND("India", "IND", "IN", false),
     IOT("British Indian Ocean Territory", "IOT", "IO", true),

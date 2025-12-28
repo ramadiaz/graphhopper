@@ -9,8 +9,8 @@ services:
     volumes:
       # Mount OSM data file (download from https://download.geofabrik.de/)
       # IMPORTANT: The file must exist on the host, otherwise Docker will create a directory
-      # Download Indonesian map: wget https://download.geofabrik.de/asia/indonesia-latest.osm.pbf
-      - ./indonesia-latest.osm.pbf:/app/indonesia-latest.osm.pbf:ro
+      # Download Indonesian map: wget https://download.geofabrik.de/asia/java-latest.osm.pbf
+      - ./java-latest.osm.pbf:/app/java-latest.osm.pbf:ro
       # Persist graph cache between container restarts
       - graph-cache:/app/graph-cache
       # Persist logs
@@ -21,7 +21,7 @@ services:
       # After import: uses ~4-6GB heap (MMAP_STORE allows OS to manage memory/disk)
       # If using RAM_STORE instead, increase to -Xmx12g -Xms12g
       - JAVA_OPTS=-Xmx10g -Xms10g -XX:+UseG1GC
-      - OSM_FILE=/app/indonesia-latest.osm.pbf
+      - OSM_FILE=/app/java-latest.osm.pbf
     restart: on-failure
 
 volumes:

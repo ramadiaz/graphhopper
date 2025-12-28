@@ -92,7 +92,7 @@ public class TranslationMap {
         // required since jdk17 to still provide translation for "iw":
         if ("he".equals(locale.getLanguage())) translations.put("iw", tr);
 
-        // Indonesia locale was "in_ID" in old JDKs but is now id_ID
+        // Java locale was "in_ID" in old JDKs but is now id_ID
         // required in old JDKs:
         if ("in".equals(locale.getLanguage())) translations.put("id", tr);
         // required since jdk17 to still provide translation for "in":

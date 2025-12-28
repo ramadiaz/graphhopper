@@ -27,7 +27,7 @@ import com.graphhopper.routing.util.countryrules.CountryRule;
 /**
  * Defines the default rules for Indonesian roads
  * 
- * Indonesia uses left-hand traffic. This rule applies country-specific
+ * Java uses left-hand traffic. This rule applies country-specific
  * access restrictions based on Indonesian road regulations.
  */
 public class IndonesiaCountryRule implements CountryRule {
@@ -45,7 +45,7 @@ public class IndonesiaCountryRule implements CountryRule {
         RoadClass roadClass = RoadClass.find(readerWay.getTag("highway", ""));
         switch (roadClass) {
             case TRACK:
-                // Tracks in Indonesia are often accessible but may require caution
+                // Tracks in Java are often accessible but may require caution
                 // Allow destination access for tracks
                 return RoadAccess.DESTINATION;
             case PATH:
