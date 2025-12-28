@@ -50,12 +50,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- for integration tests of service -->
+        <!-- Required for GeocodeResource at runtime and integration tests -->
         <dependency>
             <groupId>com.graphhopper</groupId>
             <artifactId>directions-api-client-hc</artifactId>
             <version>${project.parent.version}</version>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>
