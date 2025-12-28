@@ -167,7 +167,16 @@ public class GeocodeResource {
         }
 
         // Build request URL for Photon reverse geocoding
-        String url = geocodingServiceUrl + "/reverse?lat=" + lat + "&lon=" + lon 
+        // Photon reverse endpoint is at /reverse (not /api/reverse)
+        // So we need to remove /api from the base URL if present
+        String reverseBaseUrl = geocodingServiceUrl;
+        if (reverseBaseUrl.endsWith("/api")) {
+            reverseBaseUrl = reverseBaseUrl.substring(0, reverseBaseUrl.length() - 4);
+        } else if (reverseBaseUrl.endsWith("/api/")) {
+            reverseBaseUrl = reverseBaseUrl.substring(0, reverseBaseUrl.length() - 5);
+        }
+        
+        String url = reverseBaseUrl + "/reverse?lat=" + lat + "&lon=" + lon 
                 + "&limit=" + Math.min(limit, 50)  // Cap at 50
                 + "&lang=" + locale;
 
