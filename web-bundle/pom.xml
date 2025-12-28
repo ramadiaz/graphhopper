@@ -107,12 +107,11 @@
             <version>5.2.0</version>
         </dependency>
 
-        <!-- for integration tests of service -->
+        <!-- Geocoding API models and for integration tests of service -->
         <dependency>
             <groupId>com.graphhopper</groupId>
             <artifactId>directions-api-client-hc</artifactId>
             <version>${project.parent.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
